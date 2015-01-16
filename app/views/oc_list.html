@@ -1,0 +1,80 @@
+﻿<div ng-multi-transclude-controller>
+    <div class="panel panel-default">
+        <div class=" panel-heading">
+         
+            <div class="row">
+                <div class="col-sm-4 ">
+                    <div class="navbar-form navbar-form-sm navbar-left shift "  role="search">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" ng-model="searchString" ng-enter="search(searchString)" class="form-control input-sm bg-light no-border rounded padder" ng-change="searchCheck(searchString)" placeholder="Search ...">
+                                <span class="input-group-btn">
+                                    <a class="btn btn-sm bg-light rounded" ng-click="search(searchString)"><i class="fa fa-search"></i></a>
+                                    
+                                </span>
+                               
+                            </div>
+                            
+                            <div class="input-group">
+                                
+                                <span class="input-group-btn">
+
+                                    <a class="btn btn-sm bg-light rounded" ng-click="searchString='';searchCheck('')" ng-show="searchString"><i class="fa fa-times text-danger"></i></a>
+
+                                </span>
+                            </div>
+                          
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 text-center">
+                    <small ng-show="data" class="text-muted inline m-t-sm m-b-sm">{{paginationText}}</small>
+                   
+                </div>
+                <div class="col-sm-4 text-right text-center-xs" ng-html-compile="paginationTemplate">
+
+                </div>
+            </div>
+            <!--<div class="row panel">
+                
+            </div>-->
+        </div>
+        <div class="table-responsive">
+            <table class="{{$tableStyleClass}}">
+                <thead>
+                    <tr class="{{$tableHeaderStyleClass}}">
+                        <th ng-hide="$first&&(!data.actions ||! data.actions.length) " ng-repeat=" header in data.headers track by $index">
+                            <div ng-show="$first&&data.actions && data.actions.length &&hasSelection" class="btn-group" role="group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    Action
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li ng-repeat="action in data.actions"><a href ng-click="actionExecute(action,data.rows)">{{action.name}}</a></li>
+                                </ul>
+                            </div>
+                            <strong ng-hide="$first ">
+                                {{header.name}}
+                            </strong>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody ng-html-compile="tableTemplate"></tbody>
+            </table>
+        </div>
+    </div><!--<tr ng-repeat="$row in data.rows track by $index | filter:$searchText:strict" ng-init=" $indexrow=$index">
+    <td ng-repeat="$cell in $row  track by $index" >
+        <label ng-show="$first" class="i-checks m-b-none">
+            <input type="checkbox" name="post[]" ng-model="$cell.value" ng-click="checkActions(data.rows)">
+            <i></i>
+        </label>
+        <div ng-hide="$first">
+            <a href="" ng-click="getDetails($row.model)">
+                <div ng-hide="$cell.html">{{$cell.value}}</div>
+                <div ng-show="$cell.html" ng-html-compile="$cell.html"></div>
+            </a>
+        </div>
+    </td>
+</tr>-->
+
+</div>
